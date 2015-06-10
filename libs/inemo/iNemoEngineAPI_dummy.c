@@ -1,4 +1,5 @@
 #include "iNemoEngineAPI.h"
+#include "sensors_compass_API.h"
 
 int iNemoEngineAPI_Initialization(char LocalEarthMagField, int MagFullScale, int formFactorNumber)
 {

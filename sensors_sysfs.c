@@ -41,14 +41,18 @@ static int sensors_sysfs_write(struct sensors_sysfs_t* s, const char* attribute,
 	}
 
 	sysfs_fd = open(sysfs_path, O_RDWR);
-	if (sysfs_fd < 0)
+	if (sysfs_fd < 0) {
+		ALOGE("%s: open %s failed!\n", __func__, sysfs_path);
 		return -errno;
+  	}
 
 	ret = write(sysfs_fd, value, length);
-	if (ret < 0)
+	if (ret < 0) {
+		ALOGE("%s: save \"%s\" (%d) to %s failed!\n", __func__, value, length, sysfs_path);
 		ret = -errno;
-	close(sysfs_fd);
+  	}
 
+	close(sysfs_fd);
 	return ret;
 }
 

@@ -1,6 +1,8 @@
 #ifndef INEMO_ENGINE_API_H_
 #define INEMO_ENGINE_API_H_
 
+#include "sensors_compass_API.h"
+
 typedef struct RawCounts
 {
 	float mag[3];
